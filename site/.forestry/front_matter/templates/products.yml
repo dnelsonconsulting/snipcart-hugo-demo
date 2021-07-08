@@ -2,25 +2,52 @@
 label: Products
 hide_body: false
 fields:
+- type: file
+  name: image
+  label: Image
+  description: Displays on product page
 - type: text
   name: title
   label: Title
   config:
     required: true
+- type: textarea
+  name: shortDescription
+  label: Short Description
+  description: Shows on product and cart pages
 - type: number
   config:
     step: ".01"
     required: true
   label: Price
   name: price
-- type: textarea
-  name: shortDescription
-  label: Short Description
-  description: Shows on product and cart pages
-- type: file
-  name: image
-  label: Image
-  description: Displays on product page
+- name: size
+  type: select
+  default: ''
+  config:
+    required: false
+    options:
+    - XS
+    - S
+    - M
+    - L
+    - XL
+    - 2XL
+    - 3XL
+    - 4XL
+    - Youth XS
+    - Youth S
+    - Youth M
+    - Youth L
+    - Youth XL
+    source:
+      type: simple
+      section: products
+      file: site/content/products/boots.md
+      path: ''
+  label: Size
+  showOnly:
+    field: size
 - type: blocks
   name: customOptions
   label: Custom Options
